@@ -1,0 +1,146 @@
+<DragLayout>:
+    #definition des priorités du button deplacable
+    drag_rectangle: self.x, self.y, self.width, self.height
+    drag_timeout: 10000000
+    drag_distance: 0
+
+
+<DragButton>:
+    #definition des priorités du button deplacable
+    drag_rectangle: self.x, self.y, self.width, self.height
+    drag_timeout: 10000000
+    drag_distance: 0
+
+
+
+<Layout1>:
+    MDFloatLayout:
+        id: id_layout1
+        md_bg_color: 1, 0, .3, .35
+
+
+
+    DragLayout:
+        MDFloatLayout:
+            id: id_draglayout
+            md_bg_color: 0, 0, 0, 1
+            size_hint: None, None
+            size: 450, 350
+            radius: [30, ]
+
+            MDFloatLayout:
+                md_bg_color: 1, 1, 1, .85
+                size_hint: None, None
+                width: id_draglayout.width
+                height: id_draglayout.height - 400
+                pos_hint: {"center_x": .5, "center_y": .93}
+                radius: [30, ]
+                orientation: "horizontal"
+
+
+
+
+                MDLabel:
+                    text: root.title_layout.upper()
+                    theme_text_color: "Custom"
+                    text_color: 0, 0, 0, .65
+                    pos_hint: {"center_x": .55, "center_y": .5}
+
+
+
+                MDIconButton:
+                    id: id_button_min_windows
+                    icon:"window-minimize"
+                    theme_text_color: "Custom"
+                    text_color: 0, 0, 0, .75
+                    pos_hint:{"center_x": .7, "center_y": .5}
+                    on_release: root.minimize_window(id_layout1, id_draglayout)
+
+
+
+                MDIconButton:
+                    id: id_button_max_windows
+                    icon:"window-maximize"
+                    theme_text_color: "Custom"
+                    text_color: 0, 0, 0, .75
+                    pos_hint:{"center_x": .8, "center_y": .5}
+                    on_release: root.max_window(id_layout1, id_draglayout)
+
+
+
+                MDIconButton:
+                    id: id_button_lock_windows
+                    icon:"window-close"
+                    theme_text_color: "Custom"
+                    text_color: 0, 0, 0, .75
+                    pos_hint:{"center_x": .9, "center_y": .5}
+                    on_release: root.close_window(id_layout1,id_draglayout)
+
+
+
+            MDFloatLayout:
+                pos_hint: {"center_x": .5, "center_y": .4}
+                orientation: "vertical"
+                size_hint: None, None
+                size: (400, 250)
+                md_bg_color: 0, 0, 0, .5
+                radius: [30, ]
+
+                MDFloatLayout:
+                    pos_hint: {"center_x": .5, "center_y": .7}
+                    orientation: "horizontal"
+                    #md_bg_color: 1, 1, 1, .5
+                    size_hint: None, None
+                    size: (200, 50)
+
+                    MDLabel:
+                        pos_hint: {"center_x": .5, "center_y": .5}
+                        text: "ID"
+                        theme_text_color: "Custom"
+                        text_color: 1, 1, 1, .65
+
+                    MDTextField:
+                        id: id_ID
+                        hint_text: "votre identifiant"
+                        pos_hint: {"center_x": .7, "center_y": .5}
+#                        color_mode: "custom"
+#                        line_color_focus: 0, 0, 0, .65
+#                        mode: "line"
+#                        fill_color: 1, 1, 1, .75
+                        line_color_normal: 0, 1, 1, .75
+
+
+
+
+                MDFloatLayout:
+                    pos_hint: {"center_x": .5, "center_y": .3}
+                    orientation: "horizontal"
+                    #md_bg_color: 1, .7, 0, .5
+                    size: (200, 50)
+
+                    MDLabel:
+                        pos_hint: {"center_x": .7, "center_y": .5}
+                        text: "Avatar"
+                        theme_text_color: "Custom"
+                        text_color: 1, 1, 1, .65
+
+                    MDIconButton:
+                        id: id_button_avatar
+                        icon: "plus"
+                        pos_hint: {"center_x": .7, "center_y": .5}
+                        theme_text_color: "Custom"
+                        text_color: 1, 1, 1, .65
+                        on_release: root.load_image_avatar()
+
+
+    MDRaisedButton:
+        text: "activation"
+        on_release: root.activate_windows(id_draglayout)
+        pos_hint: {"center_x": .5, "center_y": .8}
+
+
+
+
+
+
+

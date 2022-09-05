@@ -1,0 +1,1372 @@
+#: import MyAvatar avatar.MyAvatar
+#: set size_sc2 dp(500)
+#: import AKFloatingWindow kivymd_extensions.akivymd.uix.windows
+
+<TooltipIconButton@MDIconButton+MDTooltip>
+
+
+
+<MyFirstProgressBar>:
+    id: id_sp1
+    size_hint: None, None
+    size: dp(46), dp(46)
+    color:
+        1, 1, 62/255, 1
+
+
+
+<MyLayout>:
+
+
+
+    Screen:
+
+        name: "sc1"
+        id: id_sc1
+
+
+        MDScreen:
+            name: "mdscreen_for_progressbar1"
+
+            id: id_mdsc1
+            MDFloatLayout:
+                pos_hint: {"center_x": .5, "center_y": .5}
+                size_hint: None, None
+                size: dp(100), dp(100)
+
+
+
+                MyAvatar:
+                    source: root.data_sc_sc2
+                    size_hint: None, None
+                    size: root.width, root.height
+                    pos_hint: {"center_x": .5 , "center_y": .5}
+
+
+
+
+
+            MDFloatLayout:
+                pos_hint: {"center_x": .5, "center_y": .35}
+                size_hint_x: None
+                width: dp(750)
+
+                MyFirstProgressBar:
+                    active: True
+                    pos_hint: {"center_x": .5, "center_y": .35}
+
+
+
+
+                MDLabel:
+                    text: "By Daryl Zen"
+                    font_name: root.data_font1
+                    font_size: dp(15)
+                    theme_text_color: "Custom"
+                    text_color:  1, 1, 62/255, 1
+                    shorten: True
+                    shorten_from: 'right'
+                    pos_hint: {"center_x": .5, "center_y": .25}
+
+                MDLabel:
+                    text: "Version Beta 0.0"
+                    font_name: root.data_font1
+                    font_size: dp(15)
+                    theme_text_color: "Custom"
+                    text_color: 1, 1, 62/255, 1
+                    shorten: True
+                    shorten_from: 'left'
+                    pos_hint: {"center_x": .70, "center_y": .25}
+
+                MDLabel:
+                    id: id_label_number_load
+                    text: root.number_load
+                    font_name: root.data_font1
+                    font_size: dp(40)
+                    theme_text_color: "Custom"
+                    text_color: 1, 1, 62/255, 1
+                    pos_hint: {"center_x": .93, "center_y": .25}
+
+                MDLabel:
+                    id: id_percentage_label
+                    text: "%"
+                    font_name: root.data_font1
+                    pos_hint: {"center_x": 1, "center_y": .25}
+                    font_size: dp(60)
+                    theme_text_color: "Custom"
+                    text_color: 1, 1, 62/255, 1
+
+                MDRaisedButton:
+                    text: "Commencer la partie"
+                    theme_text_color: "Custom"
+                    text_color: 228/255, 228/255, 228/255, 1
+                    md_bg_color: 1, 53/255, 53/255, 1
+                    font_name: root.data_font1
+                    font_size: dp(15)
+                    pos_hint: {"center_x": .5, "center_y": .45}
+                    on_release: root.call_timer()
+
+
+
+    Screen:
+        name: "sc2"
+        id: id_sc2
+
+        MDScreen:
+            MyAvatar:
+                id: id_avatar
+                source: root.data_acceuil_flou
+                size_hint: None, None
+                size: root.width, root.height
+
+            MDFloatLayout:
+                id: id_floatlayout_one
+                opacity: 0
+                size_hint: None, None
+                size: root.width - 500, dp(70)
+                #md_bg_color: 69/255, 153/255, 178/255, 1
+                pos_hint: {"center_x": .13, "center_y": .90}
+
+                MDIconButton:
+                    id: id_buttonicongame
+                    icon: "gamepad-variant"
+                    size_hint: None, None
+                    pos_hint: {"center_x": .43, "center_y": .65}
+                    size: dp(50), dp(50)
+                    user_font_size: dp(74)
+                    theme_text_color: "Custom"
+                    text_color: 174/255, 96/255, 191/255, .8
+                    elevation_normal: 20
+
+
+
+
+                MDFlatButton:
+                    text: "JEUX"
+                    #halign: "center"
+                    theme_text_color: "Custom"
+                    text_color: 1, 1, 1, .5
+                    font_name: root.data_font1
+                    font_size: dp(25)
+                    pos_hint: {"center_x": .5, "center_y": .65}
+                    md_bg_color: 157/255, 203/255, 217/255, 1
+                    elevation: 30
+                    on_release: root.open_menu_game(layout_for_story, layout_for_game)
+
+                MDSeparator:
+                    orientation: "vertical"
+                    md_bg_color: 1, 1, 1, .3
+                    size_hint: None, None
+                    height: dp(150)
+                    width: dp(10)
+                    pos_hint: {"center_x": .32, "center_y": .65}
+
+
+
+                MDIconButton:
+                    id: id_buttonstory
+                    icon: "window-restore"
+                    size_hint: None, None
+                    pos_hint: {"center_x": .8, "center_y": .65}
+                    size: dp(50), dp(50)
+                    user_font_size: dp(74)
+                    theme_text_color: "Custom"
+                    text_color: 174/255, 96/255, 191/255, .8
+                    elevation_normal: 20
+
+
+
+                MDFlatButton:
+                    text: "HISTORIQUE"
+                    #halign: "center"
+                    theme_text_color: "Custom"
+                    text_color: 1, 1, 1, .5
+                    font_name: root.data_font1
+                    font_size: dp(25)
+                    pos_hint: {"center_x": .69, "center_y": .65}
+                    md_bg_color: 157/255, 203/255, 217/255, 1
+                    elevation: 30
+                    on_release: root.open_menu_story(layout_for_story, layout_for_game)
+
+
+            MDFloatLayout:
+                id: layout_for_story
+                size_hint: None, None
+                size: dp(1100), dp(150)
+                md_bg_color: 0, 0, 0, .5
+                pos_hint: {"center_x": .5, "center_y": .85}
+                opacity: 0
+
+                MDRaisedButton:
+
+                    size_hint: None, None
+
+                    text: "Instruction 1"
+                    font_name: root.data_font1
+                    md_bg_color: 1, 0, 0, .5
+                    pos_hint: {"center_x": .45, "center_y": .15}
+                    on_release: root.call_instruction_1()
+
+                MDRaisedButton:
+                    size_hint: None, None
+
+                    text: "Instruction 2"
+#
+                    font_name: root.data_font1
+                    md_bg_color: 1, 0, 0, .5, #3/255, 43/255, 68/255, 1
+                    pos_hint: {"center_x": .65, "center_y": .15}
+                    on_release: root.call_instruction_2()
+
+                MDRaisedButton:
+                    size_hint: None, None
+
+                    text: "Instruction 3"
+                    font_name: root.data_font1
+                    md_bg_color: 1, 0, 0, .5
+                    pos_hint: {"center_x": .85, "center_y": .15}
+                    on_release: root.call_instruction_3()
+
+                MDCard:
+                    size_hint: None, None
+                    size: dp(90), dp(90)
+                    pos_hint: {"center_x": .45, "center_y": .6}
+                    elevation: 30
+                    md_bg_color: 1, 1, 1, .35
+                    radius: [30, ]
+
+
+
+                    MyAvatar:
+                        source: root.data_taureau
+                        size_hint: None, None
+                        size: dp(90), dp(50)
+                        pos_hint: {"center_x": .5, "center_y": .6}
+
+
+
+                MDCard:
+                    size_hint: None, None
+                    size: dp(90), dp(90)
+                    pos_hint: {"center_x": .65, "center_y": .6}
+                    elevation: 30
+                    md_bg_color: 1, 1, 1, .35
+                    radius: [30, ]
+
+                    MyAvatar:
+                        source: root.data_coq
+                        size_hint: None, None
+                        size: dp(90), dp(50)
+                        pos_hint: {"center_x": .5, "center_y": .6}
+
+                MDCard:
+                    size_hint: None, None
+                    size: dp(90), dp(90)
+                    pos_hint: {"center_x": .85, "center_y": .6}
+                    elevation: 30
+                    md_bg_color: 1, 1, 1, .35
+                    radius: [30, ]
+
+
+
+                    MyAvatar:
+                        source: root.data_lapin
+                        size_hint: None, None
+                        size: dp(90), dp(50)
+                        pos_hint: {"center_x": .5, "center_y": .6}
+
+
+
+
+
+
+
+            MDFloatLayout:
+                id: layout_for_game
+                size_hint: None, None
+                size: dp(1100), dp(150)
+                md_bg_color: 0, 0, 0, .5
+                pos_hint: {"center_x": .5, "center_y": .85}
+                opacity: 0
+
+                MDRaisedButton:
+                    id: id_button_push_game_1
+                    size_hint: None, None
+
+                    text: "Niveau 1"
+                    font_name: root.data_font1
+                    md_bg_color: 4/255, 216/255, 157/255, .5
+                    pos_hint: {"center_x": -100, "center_y": -100}
+                    on_release: root.start_game_lvl_1()
+                    #pos: -100, -100
+                    opacity: 0
+                    active: False
+
+
+
+                MDRaisedButton:
+                    size_hint: None, None
+
+                    text: "Niveau 2"
+#                    theme_text_color: "Custom"
+#                    text_color: 253/255, 200/255, 0, 1
+                    font_name: root.data_font1
+                    md_bg_color: 4/255, 216/255, 157/255, .5, #3/255, 43/255, 68/255, 1
+                    pos_hint: {"center_x": -100, "center_y": -100} #vrai position(.65, .15)
+                    on_release: root.start_game_lvl_2()
+                    #pos: -100, -100
+                    opacity: 0
+                    active: False
+
+                MDRaisedButton:
+                    size_hint: None, None
+
+                    text: "Niveau 3"
+                    font_name: root.data_font1
+                    md_bg_color: 4/255, 216/255, 157/255, .5
+                    pos_hint: {"center_x": -100, "center_y": -100}     #vrai position(.85, .15)
+                    on_release: root.start_game_lvl_3()
+                    #pos: -100, -100
+                    opacity: 0
+                    active: False
+
+                MDCard:
+                    size_hint: None, None
+                    size: dp(90), dp(90)
+                    pos_hint: {"center_x": .45, "center_y": .6}
+                    elevation: 30
+                    md_bg_color: 1, 1, 1, .35
+                    radius: [30, ]
+
+
+
+                    MyAvatar:
+                        source: root.data_taureau
+                        size_hint: None, None
+                        size: dp(90), dp(50)
+                        pos_hint: {"center_x": .5, "center_y": .6}
+
+
+
+                MDCard:
+                    size_hint: None, None
+                    size: dp(90), dp(90)
+                    pos_hint: {"center_x": .65, "center_y": .6}
+                    elevation: 30
+                    md_bg_color: 1, 1, 1, .35
+                    radius: [30, ]
+
+                    MyAvatar:
+                        source: root.data_coq
+                        size_hint: None, None
+                        size: dp(90), dp(50)
+                        pos_hint: {"center_x": .5, "center_y": .6}
+
+                MDCard:
+                    size_hint: None, None
+                    size: dp(90), dp(90)
+                    pos_hint: {"center_x": .85, "center_y": .6}
+                    elevation: 30
+                    md_bg_color: 1, 1, 1, .35
+                    radius: [30, ]
+
+
+
+                    MyAvatar:
+                        source: root.data_lapin
+                        size_hint: None, None
+                        size: dp(90), dp(50)
+                        pos_hint: {"center_x": .5, "center_y": .6}
+
+
+
+
+
+
+
+
+
+                ScrollView:
+                    id: id_mdfloatlayout_for_options
+                    opacity: 0
+                    do_scroll_x: True
+                    do_scroll_y: False
+                    size_hint_x: None
+                    width: 600
+
+
+
+
+                    MDGridLayout:
+
+                        rows: 1
+
+                        size_hint_x: None
+                        width: self.minimum_width
+
+                        spacing: dp(60)
+
+
+
+
+                        md_bg_color: 1, 1, 1, .25 #69/255, 153/255, 178/255, 1
+                        pos_hint: {"center_x": .8, "center_y": .77}
+
+                        MDScreen:
+                            size_hint: None, None
+                            size: dp(150), dp(100)
+                            pos_hint: {"center_x": .1, "center_y": .5}
+                            #elevation: 30
+                            radius: [30, ]
+                            md_bg_color: 0, 0, 0, .65
+
+                            MyAvatar:
+                                source: root.data_element1
+                                size_hint: None, None
+                                size: dp(70), dp(60)
+                                pos_hint: {"center_x": .5, "center_y": .68}
+                                halign: "center"
+
+                            MDRaisedButton:
+                                text: "Infos compte"
+                                pos_hint: {"center_x": .5, "center_y": .2}
+                                md_bg_color: 4/255, 216/255, 157/255, .5
+                                theme_text_color: "Custom"
+                                text_color: 1, 1, 1, 1
+                                font_name: root.data_font1
+                                font_size: dp(8)
+                                size_hint: .85, .3
+                                on_release: root.get_info_account()
+
+
+
+
+
+                        MDScreen:
+                            size_hint: None, None
+                            size: dp(150), dp(100)
+                            pos_hint: {"center_x": .2, "center_y": .5}
+                            md_bg_color: 0, 0, 0, .65
+                            radius: [30, ]
+                            MyAvatar:
+                                source: root.data_element2
+                                size_hint: None, None
+                                size: dp(70), dp(60)
+                                pos_hint: {"center_x": .5, "center_y": .68}
+                                halign: "center"
+
+                            MDRaisedButton:
+                                text: "Supprimer compte"
+                                pos_hint: {"center_x": .5, "center_y": .2}
+                                md_bg_color: 4/255, 216/255, 157/255, .5
+                                theme_text_color: "Custom"
+                                text_color: 1, 1, 1, 1
+                                font_name: root.data_font1
+                                font_size: dp(10)
+                                size_hint: .85, .3
+                                on_release: root.remove_account()
+
+
+
+
+
+                        Windows_:
+                            size_hint: None, None
+                            size: dp(150), dp(100)
+                            pos_hint: {"center_x": .2, "center_y": .5}
+                            md_bg_color: 0, 0, 0, .65
+                            radius: [30, ]
+
+
+
+                            MyAvatar:
+                                source: root.data_element3
+                                size_hint: None, None
+                                size: dp(70), dp(60)
+                                pos_hint: {"center_x": .5, "center_y": .68}
+                                halign: "center"
+
+                            MDRaisedButton:
+                                text: "Creer compte"
+                                pos_hint: {"center_x": .5, "center_y": .2}
+                                md_bg_color: 4/255, 216/255, 157/255, .5
+                                theme_text_color: "Custom"
+                                text_color: 1, 1, 1, 1
+                                font_name: root.data_font1
+                                font_size: dp(10)
+                                size_hint: .85, .3
+                                on_release: root.create_account()
+
+
+
+
+
+
+
+
+
+
+                        MDScreen:
+                            size_hint: None, None
+                            size: dp(150), dp(100)
+                            pos_hint: {"center_x": .2, "center_y": .5}
+                            md_bg_color: 0, 0, 0, .65
+                            radius: [30, ]
+                            MyAvatar:
+                                source: root.data_element4
+                                size_hint: None, None
+                                size: dp(70), dp(60)
+                                pos_hint: {"center_x": .5, "center_y": .68}
+                                halign: "center"
+
+                            MDRaisedButton:
+                                text: "Theme"
+                                pos_hint: {"center_x": .5, "center_y": .2}
+                                md_bg_color: 4/255, 216/255, 157/255, .5
+                                theme_text_color: "Custom"
+                                text_color: 1, 1, 1, 1
+                                font_name: root.data_font1
+                                font_size: dp(15)
+                                size_hint: .85, .3
+                                on_release: root.call_theme()
+
+
+
+
+                        MDScreen:
+                            size_hint: None, None
+                            size: dp(150), dp(100)
+                            pos_hint: {"center_x": .2, "center_y": .5}
+                            md_bg_color: 0, 0, 0, .65
+                            radius: [30, ]
+                            MyAvatar:
+                                source: root.data_element6
+                                size_hint: None, None
+                                size: dp(70), dp(60)
+                                pos_hint: {"center_x": .5, "center_y": .68}
+                                halign: "center"
+
+                            MDRaisedButton:
+                                text: "Catalogue"
+                                pos_hint: {"center_x": .5, "center_y": .2}
+                                md_bg_color: 4/255, 216/255, 157/255, .5
+                                theme_text_color: "Custom"
+                                text_color: 1, 1, 1, 1
+                                font_name: root.data_font1
+                                font_size: dp(15)
+                                size_hint: .85, .3
+                                on_release: root.open_menu_story(layout_for_story, layout_for_game)
+
+
+                        MDScreen:
+                            size_hint: None, None
+                            size: dp(150), dp(100)
+                            pos_hint: {"center_x": .2, "center_y": .5}
+                            md_bg_color: 0, 0, 0, .65
+                            radius: [30, ]
+                            MyAvatar:
+                                source: root.data_element7
+                                size_hint: None, None
+                                size: dp(70), dp(60)
+                                pos_hint: {"center_x": .5, "center_y": .68}
+                                halign: "center"
+
+                            MDRaisedButton:
+                                text: "A propos"
+                                pos_hint: {"center_x": .5, "center_y": .2}
+                                md_bg_color: 4/255, 216/255, 157/255, .5
+                                theme_text_color: "Custom"
+                                text_color: 1, 1, 1, 1
+                                font_name: root.data_font1
+                                font_size: dp(15)
+                                size_hint: .85, .3
+                                on_release: root.call_about()
+
+
+                        MDScreen:
+                            size_hint: None, None
+                            size: dp(150), dp(100)
+                            pos_hint: {"center_x": .2, "center_y": .5}
+                            md_bg_color: 0, 0, 0, .65
+                            radius: [30, ]
+                            MyAvatar:
+                                source: root.data_element8
+                                size_hint: None, None
+                                size: dp(70), dp(60)
+                                pos_hint: {"center_x": .5, "center_y": .68}
+                                halign: "center"
+
+                            MDRaisedButton:
+                                text: "Fermer"
+                                pos_hint: {"center_x": .5, "center_y": .2}
+                                md_bg_color: 4/255, 216/255, 157/255, .5
+                                theme_text_color: "Custom"
+                                text_color: 1, 1, 1, 1
+                                font_name: root.data_font1
+                                font_size: dp(15)
+                                size_hint: .85, .3
+                                on_release: app.stop()
+
+
+
+
+            MDFloatLayout:
+                id: id_floatlayout_for_name_game
+                size_hint: None, None
+                size: dp(700), dp(250)
+                pos_hint: {"center_x": .5, "center_y": .5}
+
+                MyAvatar:
+                    size_hint: None, None
+                    size: dp(750), dp(400)
+                    source: root.data_plate_menu#data_logo2_squid_game
+                    pos_hint: {"center_x": .5, "center_y": .5}
+
+                MDRaisedButton:
+                    id: id_button_didactiel
+                    text: "Lire le didactiel"
+                    theme_text_color: "Custom"
+                    md_bg_color: 1, 1, 1, .8
+                    pos_hint: {"center_x": .45, "center_y": .6}
+                    font_name: root.data_font1
+                    text_color: 1, 0, 0, .7
+                    on_release: root.open_didactiel(layout_for_game,id_floatlayout_one,id_mdfloatlayout_for_options)
+
+                MDRaisedButton:
+                    id: id_button_options
+                    text: "Lire les options"
+                    theme_text_color: "Custom"
+                    md_bg_color: 1, 1, 1, .8
+                    pos_hint: {"center_x": .45, "center_y": .4}
+                    font_name: root.data_font1
+                    text_color: 1, 0, 0, .7
+                    on_press: root.open_options(layout_for_game,id_floatlayout_one,id_mdfloatlayout_for_options)
+
+
+                MDRaisedButton:
+                    id: id_button_exit
+                    text: "Quitter le jeux"
+                    theme_text_color: "Custom"
+                    md_bg_color: 1, 1, 1, .8
+                    pos_hint: {"center_x": .45, "center_y": .2}
+                    font_name: root.data_font1
+                    text_color: 1, 0, 0, .7
+                    on_release: app.stop()
+
+
+                MDScreen:
+                    id: screen_call_instruction_1
+                    size_hint: None, None
+                    pos_hint: {"center_x": -100, "center_y": -100}
+                    opacity: 0
+                    size: dp(800), dp(500)
+
+                    Carousel:
+                        MDFloatLayout:
+                            size_hint: None, None
+                            size: screen_call_instruction_1.width, screen_call_instruction_1.height
+
+
+
+                            Image:
+                                source: root.data_tuto1
+                                size_hint: None, None
+                                size: screen_call_instruction_1.width, screen_call_instruction_1.height
+
+                            MDIconButton:
+                                icon: "location-exit"
+                                theme_text_color: "Custom"
+                                text_color:  0, 0, 0, .55
+                                pos_hint: {"center_x": .5, "center_y": .2}
+                                on_release: root.close_screen_instruction_1()
+                                size_hint: None, None
+                                user_font_size: "100sp"
+                                md_bg_color: 1, 1, 1, .4
+
+                        MDFloatLayout:
+                            size_hint: None, None
+                            size: screen_call_instruction_1.width, screen_call_instruction_1.height
+
+
+
+                            Image:
+                                source: root.data_tuto2
+                                size_hint: None, None
+                                size: screen_call_instruction_1.width, screen_call_instruction_1.height
+
+
+
+
+                MDScreen:
+                    id: screen_call_instruction_2
+                    size_hint: None, None
+                    pos_hint: {"center_x": -100, "center_y": -100}
+                    opacity: 0
+                    size: dp(800), dp(500)
+
+                    Carousel:
+                        MDFloatLayout:
+                            size_hint: None, None
+                            size: screen_call_instruction_2.width, screen_call_instruction_2.height
+
+
+
+                            Image:
+                                source: root.data_tuto3
+                                size_hint: None, None
+                                size: screen_call_instruction_2.width, screen_call_instruction_2.height
+
+                            MDIconButton:
+                                icon: "location-exit"
+                                theme_text_color: "Custom"
+                                text_color:  0, 0, 0, .55
+                                pos_hint: {"center_x": .5, "center_y": .2}
+                                on_release: root.close_screen_instruction_2()
+                                size_hint: None, None
+                                user_font_size: "100sp"
+                                md_bg_color: 1, 1, 1, .4
+
+                        MDFloatLayout:
+                            size_hint: None, None
+                            size: screen_call_instruction_2.width, screen_call_instruction_2.height
+
+
+
+                            Image:
+                                source: root.data_tuto4
+                                size_hint: None, None
+                                size: screen_call_instruction_2.width, screen_call_instruction_2.height
+
+
+
+
+
+
+
+
+                MDScreen:
+                    id: screen_call_instruction_3
+                    size_hint: None, None
+                    pos_hint: {"center_x": -100, "center_y": -100}
+                    opacity: 0
+                    size: dp(800), dp(500)
+
+                    Carousel:
+                        MDFloatLayout:
+                            size_hint: None, None
+                            size: screen_call_instruction_3.width, screen_call_instruction_3.height
+
+
+
+                            Image:
+                                source: root.data_tuto5
+                                size_hint: None, None
+                                size: screen_call_instruction_3.width, screen_call_instruction_3.height
+
+                            MDIconButton:
+                                icon: "location-exit"
+                                theme_text_color: "Custom"
+                                text_color:  0, 0, 0, .55
+                                pos_hint: {"center_x": .5, "center_y": .2}
+                                on_release: root.close_screen_instruction_3()
+                                size_hint: None, None
+                                user_font_size: "100sp"
+                                md_bg_color: 1, 1, 1, .4
+
+
+                        MDFloatLayout:
+                            size_hint: None, None
+                            size: screen_call_instruction_3.width, screen_call_instruction_3.height
+
+
+
+                            Image:
+                                source: root.data_tuto6
+                                size_hint: None, None
+                                size: screen_call_instruction_3.width, screen_call_instruction_3.height
+
+
+
+
+                MDScreen:
+                    id: screen_drop_account
+                    size_hint: None, None
+                    pos_hint: {"center_x": .5, "center_y": .5}
+                    opacity: 0
+                    md_bg_color: 1, 1, 1, 1
+                    size: dp(500), dp(200)
+
+                    MDFloatLayout:
+                        size_hint: None, None
+                        size: id_info_account_screen.width, id_info_account_screen.height - 100
+                        md_bg_color: 0, 0, 0, 1
+                        pos_hint: {"center_x": .5, "center_y": .9}
+
+                        MDIconButton:
+                            id:id_button_drop_account_screen
+                            size_hint: None, None
+                            user_font_size: "45sp"
+                            icon: "sticker-remove"
+                            pos_hint: {"center_x": .9, "center_y": .5}
+                            theme_text_color: "Custom"
+                            text_color: 1, 1, 1, 1
+                            on_release: root.close_drop_account_screen()
+
+                    MDFloatLayout:
+                        size_hint: None, None
+                        size: id_info_account_screen.width, id_info_account_screen.height - 100
+                        md_bg_color: 1, 1, 1, 1
+                        pos_hint: {"center_x": .5, "center_y": .5}
+                        valign: True
+
+                        MDTextFieldRound:
+                            id: id_account_to_drop
+                            hint_text: "Veuillez entrer le nom du compte à supprimer"
+                            pos_hint: {"center_x": .5, "center_y": .65}
+                            size_hint: None, None
+                            icon_left: "account"
+                            width: dp(350)
+                            size_hint_x: None
+
+
+                        MDIconButton:
+                            id: id_valide_drop_operation
+                            size_hint: .3, .3
+                            icon: "check-circle"
+                            pos_hint: {"center_x": .075, "center_y": .65}
+                            theme_text_color: "Custom"
+                            text_color: 1, 0, 0, 1
+
+                        MDRaisedButton:
+                            size_hint: None, None
+                            pos_hint: {"center_x": .5, "center_y": .2}
+                            text: "Supprimer le compte"
+                            md_bg_color: 1, 0, 0, .65
+                            size: dp(100), dp(100)
+                            on_release: root.delete_account()
+
+
+
+
+
+
+
+
+
+
+
+                MDScreen:
+                    id: id_info_account_screen
+                    size_hint: None, None
+                    pos_hint: {"center_x": .5, "center_y": .5}
+                    opacity: 0
+                    md_bg_color: 1, 1, 1, 1
+                    size: dp(500), dp(200)
+
+                    MDFloatLayout:
+                        size_hint: None, None
+                        size: id_info_account_screen.width, id_info_account_screen.height - 100
+                        md_bg_color: 0, 0, 0, 1
+                        pos_hint: {"center_x": .5, "center_y": .9}
+
+                        MDIconButton:
+                            id:id_button_info_close_account_screen
+                            size_hint: None, None
+                            user_font_size: "45sp"
+                            icon: "sticker-remove"
+                            pos_hint: {"center_x": .9, "center_y": .5}
+                            theme_text_color: "Custom"
+                            text_color: 1, 1, 1, 1
+                            on_release: root.close_info_account_screen()
+
+                    MDFloatLayout:
+                        size_hint: None, None
+                        size: id_info_account_screen.width, id_info_account_screen.height - 100
+                        md_bg_color: 1, 1, 1, 1
+                        pos_hint: {"center_x": .5, "center_y": .5}
+                        halign: True
+
+                        MDIconButton:
+                            size_hint: None, None
+                            user_font_size: "20sp"
+                            icon: "account"
+                            pos_hint: {"center_x": .1, "center_y": .6}
+                            theme_text_color: "Custom"
+                            text_color: 0, 128/255, 128/255, 1
+
+                        MDLabel:
+                            id: id_get_name_account_db
+                            text: ""
+                            pos_hint: {"center_x": .2, "center_y": .2}
+                            size_hint: None, None
+                            user_font_size: "15sp"
+                            theme_text_color: "Custom"
+                            text_color: 51/255, 102/255, 1, .35
+
+                        MDSeparator:
+                            orientation: "vertical"
+                            size_hint: None, None
+                            size: "2sp", id_info_account_screen.height - 100
+                            pos_hint: {"center_x": .3, "center_y": .3}
+                            md_bg_color: 51/255, 102/255, 1, .35
+
+
+                        MDIconButton:
+                            size_hint: None, None
+                            user_font_size: "20sp"
+                            icon: "folder-image"
+                            pos_hint: {"center_x": .45, "center_y": .6}
+                            theme_text_color: "Custom"
+                            text_color: 1, 153/255, 0, 1
+
+
+                        Image:
+                            id: id_image_avatar
+                            source: ""
+                            size_hint: None, None
+                            pos_hint:{"center_x": .45, "center_y": .1}
+                            size: dp(80), dp(80)
+
+
+                        MDSeparator:
+                            orientation: "vertical"
+                            size_hint: None, None
+                            size: "2sp", id_info_account_screen.height - 100
+                            pos_hint: {"center_x": .6, "center_y": .3}
+                            md_bg_color: 51/255, 102/255, 1, .35
+
+
+
+
+
+                        MDIconButton:
+                            size_hint: None, None
+                            user_font_size: "20sp"
+                            icon: "clock-time-eight-outline"
+                            pos_hint: {"center_x": .75, "center_y": .6}
+                            theme_text_color: "Custom"
+                            text_color: 1, 0, 0, 1
+
+
+                        MDLabel:
+                            id: id_date_creation_date
+                            text: ""
+                            size_hint: None, None
+                            theme_text_color: "Custom"
+                            text_color: 51/255, 102/255, 1, 1
+                            pos_hint:{"center_x": .75, "center_y": .1}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                MDScreen:
+                    id: id_screen_account
+                    size_hint: None, None
+                    pos_hint: {"center_x": .89, "center_y": .3}
+                    opacity: 0
+                    md_bg_color: 0, 128/255, 128/255, 1
+                    size: dp(300), dp(300)
+
+                    MDLabel:
+                        id: id_name_user
+                        size_hint: None, None
+                        #size: dp(5), dp(5)
+                        font_size: "15sp"
+                        font_name:  root.data_font1
+                        pos_hint: {"center_x": .2, "center_y": .75}
+                        text: "Joeur"
+                        theme_text_color: "Custom"
+                        text_color: 1, 1, 1, .75
+
+
+                    MDTextField:
+                        id: id_textfield_account
+                        hint_text: "Nom du joeur"
+                        helper_text: "Cet option est Obligatoire"
+                        helper_text_mode: "on_focus"
+                        size_hint: None, None
+                        pos_hint: {"center_x": .5, "center_y": .75}
+
+
+
+                    MDLabel:
+                        size_hint: None, None
+                        #size: dp(5), dp(5)
+                        font_size: "15sp"
+                        font_name: root.data_font1
+                        pos_hint: {"center_x": .2, "center_y": .55}
+                        text: "Avatar"
+                        theme_text_color: "Custom"
+                        text_color: 1, 1, 1, .75
+
+
+                    TooltipIconButton:
+                        size_hint: None, None
+                        size: dp(35), dp(35)
+                        pos_hint: {"center_x": .5, "center_y": .55}
+                        icon: "plus"
+                        tooltip_text: "Sélectionner une image pour votre avatar et Enregistrer vos données"
+                        theme_text_color: "Custom"
+                        text_color: 46/255, 3/255, 90/255, 1
+                        on_release: root.load_image_avatar()
+
+
+
+
+
+
+
+
+
+                    MDFloatLayout:
+                        size_hint: None, None
+                        size: id_screen_account.width, id_screen_account.height - 250
+                        md_bg_color: 1, 1, 1, 1
+                        pos_hint: {"center_x": .5, "center_y": .95}
+
+                        MDIconButton:
+                            id:id_button_close_account_screen
+                            size_hint: None, None
+                            user_font_size: "45sp"
+                            icon: "sticker-remove"
+                            pos_hint: {"center_x": .9, "center_y": .5}
+                            theme_text_color: "Custom"
+                            text_color: 0, 0, 0, 1
+                            on_release: root.close_account_screen()
+
+
+
+
+            MDFloatLayout:
+                size_hint: None, None
+                size: dp(200), dp(200)
+                pos_hint: {"center_x": .5, "center_y": .2}
+
+
+
+                MDLabel:
+                    id: idlabel_O
+                    text: "O"
+                    opacity: 0
+                    theme_text_color: "Custom"
+                    text_color: 1, 1, 1, .2
+                    pos_hint: {"center_x": 1, "center_y": .1}
+                    font_name: root.data_font1
+                    font_size: dp(30)
+
+                MDLabel:
+                    id: idlabel_c
+                    text: "{"
+                    opacity: 0
+                    theme_text_color: "Custom"
+                    text_color: 1, 1, 1, .2
+                    pos_hint: {"center_x": .7, "center_y": .1}
+                    font_name: root.data_font1
+                    font_size: dp(30)
+
+
+                MDLabel:
+                    id: idlabel_t
+                    text: "}"
+                    opacity: 0
+                    theme_text_color: "Custom"
+                    text_color: 1, 1, 1, .2
+                    pos_hint: {"center_x": .85, "center_y": .1}
+                    font_name: root.data_font1
+                    font_size: dp(30)
+
+
+
+
+            MDFloatLayout:
+                size_hint: None, None
+                size: dp(300), dp(300)
+                pos_hint: {"center_x": .2, "center_y": .5}
+                md_bg_color: 0, 0, 0, .15
+
+                MyAvatar:
+                    id: id_piece1
+                    opacity: 0
+                    size_hint: None, None
+                    size: dp(40), dp(40)
+                    source: root.data_piece1
+                    pos_hint: {"center_x": .5, "center_y": 1}
+
+
+                MyAvatar:
+                    id: id_piece2
+                    opacity: 0
+                    size_hint: None, None
+                    size: dp(40), dp(40)
+                    source: root.data_piece2
+                    pos_hint: {"center_x": 1, "center_y": .5}
+
+
+                MyAvatar:
+                    id: id_piece3
+                    opacity: 0
+                    size_hint: None, None
+                    size: dp(40), dp(40)
+                    source: root.data_piece3
+                    pos_hint: {"center_x": 0, "center_y": .5}
+
+
+
+                MyAvatar:
+                    id: id_piece4
+                    opacity: 0
+                    size_hint: None, None
+                    size: dp(40), dp(40)
+                    source: root.data_piece4
+                    pos_hint: {"center_x": .5, "center_y": 0}
+
+                MyAvatar:
+                    id: id_piece5
+                    opacity: 0
+                    size_hint: None, None
+                    size: dp(40), dp(40)
+                    source: root.data_piece5
+                    pos_hint: {"center_x": .25, "center_y": .5}
+
+                MyAvatar:
+                    id: id_piece6
+                    opacity: 0
+                    size_hint: None, None
+                    size: dp(40), dp(40)
+                    source: root.data_piece6
+                    pos_hint: {"center_x": .45, "center_y": .5}
+
+
+                MyAvatar:
+                    id: id_piece7
+                    opacity: 0
+                    size_hint: None, None
+                    size: dp(40), dp(40)
+                    source: root.data_piece7
+                    pos_hint: {"center_x": .65, "center_y": .5}
+
+
+
+
+
+            MDFloatLayout:
+                id: id_floatlayout_for_poupe
+                size_hint: None, None
+                size: dp(348), dp(600)
+                pos_hint: {"center_x": .87, "center_y": .4}
+
+                MyAvatar:
+                    size_hint: None, None
+                    size: dp(348), dp(600)
+                    source: root.data_poupe
+                    pos_hint: {"center_x": .5, "center_y": .5}
+
+
+
+
+            MDFloatLayout:
+                id: id_mdfloatlayout_for_story
+                opacity: 0
+                size_hint: None, None
+                size: dp(1100), dp(200)
+                md_bg_color: 138/255, 23/255, 221/255, 1 #69/255, 153/255, 178/255, 1
+                pos_hint: {"center_x": .5, "center_y": .77}
+
+
+
+
+
+    Screen:
+        name: "sc3"
+        #opacity: 0
+        id: id_sc3
+
+        MDScreen:
+            MyAvatar:
+                source: root.data_sc_sc2
+
+
+                MDLabel:
+                    text: "SQUID GAME 1...2....3....soleil"
+                    theme_text_color: "Custom"
+                    text_color: 0, 1, 1, 1#134/255, 172/255, 19/255, 1
+
+                    font_name: root.data_font1
+                    font_size: dp(50)
+                    pos_hint: {"center_x": .15, "center_y": .9}
+
+
+
+
+                MyAvatar:
+                    size_hint: None, None
+                    size: dp(348), dp(600)
+                    pos_hint: {"center_x": .3, "center_y": .4}
+                    source: root.data_poupe
+
+
+
+
+
+            MDFloatLayout:
+                pos_hint: {"center_x": .7, "center_y": .5}
+                size_hint_x: None
+                width: id_sc2.width / 2
+
+
+
+                MDFloatLayout:
+                    pos_hint: {"center_x": .5, "center_y": .85}
+                    size_hint: None, None
+                    size: dp(450), dp(200)
+                    md_bg_color: 48/255, 48/255, 48/255, 1
+
+                    Carousel:
+                        pos_hint: {"center_x": .5, "center_y": .5}
+
+                        MDFloatLayout:
+                            size_hint: None, None
+                            size: dp(350), dp(170)
+                            pos_hint: {"center_x": .5, "center_y": .5}
+                            #md_bg_color: 1, 0, 0, 1
+
+                            MDLabel:
+                                text: "Créer un compte"
+                                theme_text_color: "Custom"
+                                text_color: 0, 1, 1, 1#134/255, 172/255, 19/255, 1
+                                font_name: root.data_font1
+                                font_size: dp(30)
+                                pos_hint: {"center_x": .55, "center_y": .75}
+
+                            MDCard:
+                                size_hint: .6, .3
+                                pos_hint: {"center_x": .5, "center_y": .5}
+                                Image:
+                                    source: root.data_coq
+
+                            MDRaisedButton:
+                                text: "Valider"
+                                theme_text_color: "Custom"
+                                text_color: 1, 1, 1, 1
+                                md_bg_color: 134/255, 172/255, 19/255, 1
+                                pos_hint: {"center_x": .5, "center_y": .2}
+
+
+
+
+                        MDFloatLayout:
+                            size_hint: None, None
+                            size: dp(350), dp(170)
+                            pos_hint: {"center_x": .5, "center_y": .5}
+                            #md_bg_color: 1, 0, 0, 1
+
+                            MDLabel:
+                                text: "Modifier un compte"
+                                theme_text_color: "Custom"
+                                text_color: 0, 1, 1, 1#134/255, 172/255, 19/255, 1
+                                font_name: root.data_font1
+                                font_size: dp(30)
+                                pos_hint: {"center_x": .55, "center_y": .75}
+
+                            MDCard:
+                                size_hint: .6, .3
+                                pos_hint: {"center_x": .5, "center_y": .5}
+                                Image:
+                                    source: root.data_lapin
+
+                            MDRaisedButton:
+                                text: "Valider"
+                                theme_text_color: "Custom"
+                                text_color: 1, 1, 1, 1
+                                md_bg_color: 134/255, 172/255, 19/255, 1
+                                pos_hint: {"center_x": .5, "center_y": .2}
+
+
+
+                        MDFloatLayout:
+                            size_hint: None, None
+                            size: dp(350), dp(170)
+                            pos_hint: {"center_x": .5, "center_y": .5}
+                            #md_bg_color: 1, 0, 0, 1
+
+                            MDLabel:
+                                text: "Supprimer un compte"
+                                theme_text_color: "Custom"
+                                text_color: 0, 1, 1, 1#134/255, 172/255, 19/255, 1
+                                font_name: root.data_font1
+                                font_size: dp(30)
+                                pos_hint: {"center_x": .55, "center_y": .75}
+
+                            MDCard:
+                                size_hint: .6, .3
+                                pos_hint: {"center_x": .5, "center_y": .5}
+                                Image:
+                                    source: root.data_taureau
+
+                            MDRaisedButton:
+                                text: "Valider"
+                                theme_text_color: "Custom"
+                                text_color: 1, 1, 1, 1
+                                md_bg_color: 134/255, 172/255, 19/255, 1
+                                pos_hint: {"center_x": .5, "center_y": .2}
+
+
+
+
+                MDFloatLayout:
+                    pos_hint: {"center_x": .5, "center_y": .5}
+                    size_hint: None, None
+                    size: dp(450), dp(200)
+                    md_bg_color: 48/255, 48/255, 48/255, 1
+
+                    MDRaisedButton:
+                        text: "centrer"
+                        pos_hint: {"center_x": .5, "center_y": .5}
+
+                MDFloatLayout:
+                    pos_hint: {"center_x": .5, "center_y": .15}
+                    size_hint: None, None
+                    size: dp(450), dp(200)
+                    md_bg_color: 48/255, 48/255, 48/255, 1
+
+                    MDRaisedButton:
+                        text: "bas"
+                        pos_hint: {"center_x": .5, "center_y": .5}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
