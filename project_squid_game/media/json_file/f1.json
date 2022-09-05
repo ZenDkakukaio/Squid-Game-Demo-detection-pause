@@ -1,0 +1,154 @@
+{
+  "logo_game":
+  {
+    "img1": "../project_game_squid_game/media/image/masks.jpg"
+  },
+
+  "bg_screen2":
+  {
+    "img1": "../project_game_squid_game/media/image/acceuil.PNG"
+  },
+
+    "poupe":
+  {
+    "img1": "../project_game_squid_game/media/image/poupe.png"
+  },
+
+    "chef":
+  {
+    "img1": "../project_game_squid_game/media/image/chef.png"
+  },
+
+     "coq":
+  {
+    "img1": "../project_game_squid_game/media/image/coq_vip.PNG"
+  },
+
+     "lapin":
+  {
+    "img1": "../project_game_squid_game/media/image/lapin_vip.PNG"
+  },
+
+     "taureau":
+  {
+    "img1": "../project_game_squid_game/media/image/taureau_vip.PNG"
+  },
+
+  "acceuil_flou":
+  {
+    "img1": "../project_game_squid_game/media/image/acceuil_flou.png"
+  },
+
+
+  "bg_authentification":
+  {
+    "img1": "../project_game_squid_game/media/image/bg_authentification.PNG"
+  },
+
+  "font1":
+  {
+    "game_of_squid": "../project_game_squid_game/media/font/game_of_squids/Game Of Squids.otf"
+  },
+
+  "piece1":
+  {
+    "img1": "../project_game_squid_game/media/image/piece1.png"
+  },
+
+  "piece2":
+  {
+    "img1": "../project_game_squid_game/media/image/piece2.png"
+  },
+
+  "piece3":
+  {
+    "img1": "../project_game_squid_game/media/image/piece3.png"
+  },
+
+  "piece4":
+  {
+    "img1": "../project_game_squid_game/media/image/piece4.png"
+  },
+
+  "piece5":
+  {
+    "img1": "../project_game_squid_game/media/image/piece5.png"
+  },
+
+  "piece6":
+  {
+    "img1": "../project_game_squid_game/media/image/piece6.png"
+  },
+
+  "piece7":
+  {
+    "img1": "../project_game_squid_game/media/image/piece7.png"
+  },
+  "element1":
+  {
+    "img1": "../project_game_squid_game/media/image/element1.png"
+  },
+  "element2":
+  {
+    "img1": "../project_game_squid_game/media/image/element2.png"
+  },
+  "element3":
+  {
+    "img1": "../project_game_squid_game/media/image/element3.png"
+  },
+  "element4":
+  {
+    "img1": "../project_game_squid_game/media/image/element4.png"
+  },
+  "element5":
+  {
+    "img1": "../project_game_squid_game/media/image/element5.png"
+  },
+  "element6":
+  {
+    "img1": "../project_game_squid_game/media/image/element6.png"
+  },
+  "element7":
+  {
+    "img1": "../project_game_squid_game/media/image/element7.png"
+  },
+
+   "element8":
+  {
+    "img1": "../project_game_squid_game/media/image/element8.png"
+  },
+
+    "logo2_squid_game":
+  {
+    "img1": "../project_game_squid_game/media/image/logo2_squidgame.png"
+  },
+
+  "plate_menu":
+  {
+    "img1": "../project_game_squid_game/media/image/plate_menu.png"
+  },
+  "tuto1":
+  {
+    "tuto1": "../project_game_squid_game/media/image/tuto1.PNG"
+  },
+  "tuto2":
+  {
+    "tuto2": "../project_game_squid_game/media/image/tuto2.PNG"
+  },
+  "tuto3":
+  {
+    "tuto3": "../project_game_squid_game/media/image/tuto3.PNG"
+  },
+  "tuto4":
+  {
+    "tuto4": "../project_game_squid_game/media/image/tuto4.PNG"
+  },
+  "tuto5":
+  {
+    "tuto5": "../project_game_squid_game/media/image/tuto5.PNG"
+  },
+  "tuto6":
+  {
+    "tuto6": "../project_game_squid_game/media/image/tuto6.PNG"
+  }
+}
